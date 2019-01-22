@@ -44,6 +44,7 @@ search() { find . -name "*$1*" ; }
 own() { for item in "$@" ; do sudo chown root "$item" ; sudo chmod 777 "$item" ; echo $(tput setaf 5)"👍 Owned: $item"$(tput sgr0) ; done; echo "😉";}
 mkalias() { source=`pwd`"/$1" ; destination="/Users/sirrichard/Downloads" ;  script=$(osascript -e 'tell application "Finder" to make alias file to POSIX file "'$source'" at POSIX file "'$destination'"' -e 'return 1' ); if [ $script = 1 ] ; then echo "Alias \"$1\" Created at \"$destination\""; fi; }
 
+code() { for item in "$@" ; do open "$item" -a "code.app" ; echo $(tput setaf 5)"👉 Opening: $item"$(tput sgr0) ; done; }
 
 volup() { osascript -e "set volume $1" ; }
 voldown() { osascript -e "set volume 0" ; } 
@@ -110,3 +111,6 @@ togglewifi() {
 source ~/sites/goto-bash/goto.sh
 source ~/bin/bashmarks.sh
 source /etc/bash.command-not-found
+
+PATH=$PATH:/usr/local/Cellar/php@7.2/7.2.14/bin/
+export PATH
