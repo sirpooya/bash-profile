@@ -40,6 +40,7 @@ alias nnvhosts='nano /etc/apache2/extra/httpd-vhosts.conf'
 alias poweroff='sudo /sbin/shutdown -h now'
 
 
+unlock() { alichflags -R nouchg $1 ; }
 search() { find . -name "*$1*" ; }
 own() { for item in "$@" ; do sudo chown root "$item" ; sudo chmod 777 "$item" ; echo $(tput setaf 5)"👍 Owned: $item"$(tput sgr0) ; done; echo "😉";}
 mkalias() { source=`pwd`"/$1" ; destination="/Users/sirrichard/Downloads" ;  script=$(osascript -e 'tell application "Finder" to make alias file to POSIX file "'$source'" at POSIX file "'$destination'"' -e 'return 1' ); if [ $script = 1 ] ; then echo "Alias \"$1\" Created at \"$destination\""; fi; }
@@ -114,3 +115,5 @@ source /etc/bash.command-not-found
 
 PATH=$PATH:/usr/local/Cellar/php@7.2/7.2.14/bin/
 export PATH
+
+#edited recently
