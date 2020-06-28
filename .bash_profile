@@ -10,11 +10,11 @@ own() { for item in "$@" ; do sudo chown root "$item" ; sudo chmod 777 "$item" ;
 
 run() { for item in "$@" ; do $item ; done; }
 
-emu() {do /Users/pooya/Library/Android/sdk/emulator/emulator -avd Pixel_2_API_28 -netdelay none -netspeed full ;}
-direct() {open http://localhost:8080 ; cd ~/git/direct ; dev_appserver.py .; }
+alias emu='/Users/pooya/Library/Android/sdk/emulator/emulator -avd Pixel_2_API_28 -netdelay none -netspeed full'
 
-alias clean='. ~/.bash_profile ; cd ; clear ; echo -e "\( ^◡^)/\n\n\n"'
+alias clean='. ~/.bash_profile ; cd ~ ; clear ; echo -e "\( ^◡^)/\n\n\n"'
 
+alias direct='open http://localhost:8080 ; cd ~/git/direct ; dev_appserver.py .'
 
 
 # Setting PATH for Python 3.8
